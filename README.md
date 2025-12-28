@@ -1,15 +1,15 @@
-<h1 align="center">Project J.A.I.son</h1>
+<h1 align="center">Project VITA</h1>
 
 <img src="docs/assets/banner.png" alt="Project J.A.I.son" width="1920">
 
 <h4 align="center">Core server for building AI Companion applications.</h4>
 
 <p align="center">
-  <img alt="Project JAIson badge" src="https://img.shields.io/badge/Project-JAIson-blue">
-  <img alt="Github Release" src="https://img.shields.io/github/v/release/limitcantcode/jaison-core" />
-  <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/limitcantcode/jaison-core" />
-  <img alt="Issues" src="https://img.shields.io/github/issues/limitcantcode/jaison-core" />
-  <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/limitcantcode/jaison-core" />
+  <img alt="Project JAIson badge" src="https://img.shields.io/badge/Project-VITA-blue">
+  <img alt="Github Release" src="https://img.shields.io/github/v/release/Project-VITA-AI/vita-core" />
+  <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/Project-VITA-AI/vita-core" />
+  <img alt="Issues" src="https://img.shields.io/github/issues/Project-VITA-AI/vita-core" />
+  <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/Project-VITA-AI/vita-core" />
 </p>
 
 <p align="center" >
@@ -48,51 +48,41 @@ Feel free to build and share your own! See the [Developer Guide](#developer-guid
 
 ## Install From Scratch
 
-> **Note**
-> To simplify setup across platforms, setup now uses [conda](https://docs.conda.io/projects/conda/en/stable/user-guide/install/index.html). Conda is not necessary to run this project.
-
 ### Setup and install dependencies
 
-Create and enter a virtual environment with Python ^3.10 and pip 24.0.
+Create and enter a virtual environment with Python 3.10. I suggest using [uv](https://docs.astral.sh/uv/getting-started/installation/) and this documentation will use uv
 
 For example, using conda:
 ```bash
-conda create -n jaison-core python=3.10 pip=24.0 -y
-conda activate jaison-core
+uv pip venv --python="3.10"
+
+# Use this environment
+.venv/Scripts/activate # Windows
+source .venv/bin/activate # Linux
 ```
 
 <hr />
 
-Install [PyTorch 2.7.1](https://pytorch.org/get-started/previous-versions/) with the right integration. Example below for computers with RTX graphics card.
+Install dependencies according to your system.
+
+**NOTE**: Only tested for windows on NVidia hardware. Use on Linux is possible but requires removal of windows specific dependencies. Use with AMD GPU may be possible with ROCm version of pytorch. Install v2.5.1 from [here](https://pytorch.org/get-started/previous-versions/) after installing CPU version. There's no guaruntee this will work as some systems are NVidia specific.
+
 ```bash
-pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+# Inside project root where this README is located
+uv pip install --no-deps -r requirements.win_cpu.lock # Example for CPU on windows
+python install.py
 ```
 
-> For NVidia cards, ensure you have the latest drivers and [CUDA toolkit](https://developer.nvidia.com/cuda-toolkit)
+> If on Windows, please enable [Developer Mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development)
 
+> For NVidia cards, ensure you have the latest drivers and [CUDA toolkit](https://developer.nvidia.com/cuda-toolkit)
 
 > Dealing with duplicate `libiomp5md.dll`.
 > 
 > It might not be necessary, but in case you encounter this error when running:
 > 
-> 1. Go to environment directory (where conda stores installed packages)
-> 2. Search for `libiomp5md.dll`
-> 3. Delete the version under package `torch`
-
-<hr />
-
-Install dependencies.
-
-```bash
-# Inside project root where this README is located
-pip install -r requirements.txt
-pip install --no-deps -r requirements.no_deps.txt
-python -m spacy download en_core_web_sm
-python install.py
-python -m unidic download
-```
-
-> If on Windows, please enable [Developer Mode](https://learn.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development)
+> 1. Go to `torch` package in environment directory (`.venv/Lib/sit-packages/torch` for `uv`)
+> 2. Search and delete `libiomp5md.dll`
 
 <hr />
 
@@ -135,7 +125,7 @@ Example usage: `python ./src/main.py --config=example`
 
 ## Developer Guide
 
-See the specification for building applciations for Project J.A.I.son, creating custom integrations, and configuration tips below:
+See the specification for building applciations for Project VITA, creating custom integrations, and configuration tips below:
 
 - [REST API spec](api.yaml)
 - [Development guide](DEVELOPER.md)
@@ -153,8 +143,8 @@ Join the community!
 
 [Become a contributor as well](CONTRIBUTING.md)
 
-<a href="https://github.com/limitcantcode/jaison-core/graphs/contributors" target="_blank">
-  <img src="https://contrib.rocks/image?repo=limitcantcode/jaison-core" />
+<a href="https://github.com/Project-VITA-AI/vita-core/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=Project-VITA-AI/vita-core" />
 </a>
 
 ## License

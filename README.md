@@ -52,7 +52,7 @@ Feel free to build and share your own! See the [Developer Guide](#developer-guid
 
 Create and enter a virtual environment with Python 3.10. I suggest using [uv](https://docs.astral.sh/uv/getting-started/installation/) and this documentation will use uv
 
-For example, using conda:
+For example, using uv:
 ```bash
 uv pip venv --python="3.10"
 
@@ -65,7 +65,7 @@ source .venv/bin/activate # Linux
 
 Install dependencies according to your system.
 
-**NOTE**: Only tested for windows on NVidia hardware. Use on Linux is possible but requires removal of windows specific dependencies. Use with AMD GPU may be possible with ROCm version of pytorch. Install v2.5.1 from [here](https://pytorch.org/get-started/previous-versions/) after installing CPU version. There's no guaruntee this will work as some systems are NVidia specific.
+**NOTE**: Only tested for windows on NVidia hardware. Use on Linux is possible but requires removal of windows specific dependencies. Use with AMD GPU may be possible with ROCm version of pytorch. Install v2.5.1 from [here](https://pytorch.org/get-started/locally/) after installing CPU version. There's no guaruntee this will work as some systems are NVidia specific.
 
 ```bash
 # Inside project root where this README is located
